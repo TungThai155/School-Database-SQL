@@ -1,0 +1,215 @@
+DROP TABLE IF EXISTS Faculty_Record;
+DROP TABLE IF EXISTS Tutor_Record;
+DROP TABLE IF EXISTS Tutor;
+DROP TABLE IF EXISTS Professor;
+DROP TABLE IF EXISTS Exercise;
+DROP TABLE IF EXISTS Student_View_Record;
+DROP TABLE IF EXISTS Student_Contribute_Record;
+DROP TABLE IF EXISTS Note;
+DROP TABLE IF EXISTS Registration;
+DROP TABLE IF EXISTS Student_View;
+DROP TABLE IF EXISTS Student_Contribute;
+DROP TABLE IF EXISTS Achievement_Record;
+DROP TABLE IF EXISTS Achievement;
+DROP TABLE IF EXISTS Project_Record;
+DROP TABLE IF EXISTS Project;
+DROP TABLE IF EXISTS Club_Member_Record;
+DROP TABLE IF EXISTS Club;
+DROP TABLE IF EXISTS Club_Member;
+DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS Chatroom;
+
+CREATE TABLE Chatroom
+(
+		ChatroomID		VARCHAR(10)	NOT NULL,
+        Topic			VARCHAR(40),
+        Discussion		VARCHAR(40),
+        CONSTRAINT Chatroom_PK PRIMARY KEY (ChatroomID)
+        );
+
+CREATE TABLE Student
+(
+		StudentID       VARCHAR(10)   NOT NULL,
+		Name	        VARCHAR(40),
+        DOB   	        DATE,
+		Academic_Year	VARCHAR(40),
+		Major			VARCHAR(50),
+		Gender			VARCHAR(2),
+		ChatroomID		VARCHAR(10),
+		CONSTRAINT Student_PK PRIMARY KEY (StudentID) ,
+		CONSTRAINT Student_FK1 FOREIGN KEY (ChatroomID) REFERENCES Chatroom(ChatroomID)
+);
+
+CREATE TABLE Course
+(
+		CourseID 	        VARCHAR(10)   NOT NULL,
+		Title			    VARCHAR(60),
+        Department			VARCHAR(40),
+		Credits				INT,
+		CONSTRAINT Course_PK PRIMARY KEY (CourseID)
+);
+
+CREATE TABLE Club_Member
+(
+		Club_StudentID       VARCHAR(10)   NOT NULL,
+        Date_Joined   		 DATE,
+		CONSTRAINT Club_Member_PK PRIMARY KEY (Club_StudentID) ,
+		CONSTRAINT Club_Member_FK1 FOREIGN KEY (Club_StudentID) REFERENCES Student(StudentID)
+);
+
+CREATE TABLE Club
+(
+		ClubID	        VARCHAR(10)   NOT NULL,
+		Member	        VARCHAR(40),
+        Meeting_Time   	VARCHAR(40),
+		Club_Name	    VARCHAR(40),
+		CONSTRAINT Club_PK PRIMARY KEY (ClubID)
+);
+
+CREATE TABLE Club_Member_Record
+(
+		Club_StudentID       VARCHAR(10)   NOT NULL,
+		ClubID	    		 VARCHAR(10)   NOT NULL,
+		CONSTRAINT Club_Member_Record_PK PRIMARY KEY (Club_StudentID,ClubID) ,
+		CONSTRAINT Club_Member_Record_FK1 FOREIGN KEY (Club_StudentID) REFERENCES Student(StudentID),
+		CONSTRAINT Club_Member_Record_FK2 FOREIGN KEY (ClubID) REFERENCES Club(ClubID)
+);
+
+CREATE TABLE Project
+(
+		ProjectID       	VARCHAR(10)   NOT NULL,
+		Title		    	VARCHAR(40),
+        Start_Date   		DATE,
+		Number_of_Members	INT,
+		ClubID				VARCHAR(10),
+		CONSTRAINT Project_PK PRIMARY KEY (ProjectID) ,
+		CONSTRAINT Project_FK1 FOREIGN KEY (ClubID) REFERENCES Club(ClubID)
+);
+
+CREATE TABLE Project_Record
+(
+		Club_StudentID       VARCHAR(10)      NOT NULL,
+		ProjectID	   		 VARCHAR(10)	  NOT NULL,
+		CONSTRAINT Project_Record_PK PRIMARY KEY (Club_StudentID,ProjectID) ,
+		CONSTRAINT Project_Record_FK1 FOREIGN KEY (Club_StudentID) REFERENCES Student(StudentID),	
+		CONSTRAINT Project_Record_FK2 FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
+);
+
+CREATE TABLE Achievement
+(
+		Title 	        VARCHAR(20)   NOT NULL,
+		Date_Posted	    DATE,
+        Subject			VARCHAR(40),
+		CONSTRAINT Achievement_PK PRIMARY KEY (Title)
+);
+
+CREATE TABLE Achievement_Record
+(
+		Title       VARCHAR(10)   NOT NULL,
+		StudentID	VARCHAR(10)   NOT NULL,
+		CONSTRAINT Achievement_Record_PK PRIMARY KEY (StudentID,Title) ,
+		CONSTRAINT Achievement_Record_FK1 FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+		CONSTRAINT Achievement_Record_FK2 FOREIGN KEY (Title) REFERENCES Achievement(Title)
+);
+
+CREATE TABLE Student_Contribute
+(
+		Contribute_StudentID       VARCHAR(10)   NOT NULL,
+		Permission_Right    	   VARCHAR(20),
+        Contribute_Point   		   INT,
+		CONSTRAINT Student_Contribute_PK PRIMARY KEY (Contribute_StudentID) ,
+		CONSTRAINT Student_Contribute_FK1 FOREIGN KEY (Contribute_StudentID) REFERENCES Student(StudentID)
+);
+
+CREATE TABLE Student_View
+(
+		View_StudentID       VARCHAR(10)   NOT NULL,
+		Comment    	 	     VARCHAR(50),
+        Edit_Permission      VARCHAR(5),
+		CONSTRAINT Student_View_PK PRIMARY KEY (View_StudentID) ,
+		CONSTRAINT Student_View_FK1 FOREIGN KEY (View_StudentID) REFERENCES Student(StudentID)
+);
+
+
+CREATE TABLE Registration
+(
+		StudentID       VARCHAR(10)   NOT NULL,
+		CourseID    	VARCHAR(10)	  NOT NULL,
+		CONSTRAINT Registration_PK PRIMARY KEY (StudentID,CourseID) ,
+		CONSTRAINT Registration_FK1 FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+		CONSTRAINT Registration_FK2 FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+CREATE TABLE Note
+(
+		NoteID       	VARCHAR(10)   NOT NULL,
+		Topic		    	VARCHAR(50),
+        Published_Date  	DATE,
+		Description     	VARCHAR(50),
+		Grade				VARCHAR(3),
+		CourseID			VARCHAR(10),
+		CONSTRAINT Note_PK PRIMARY KEY (NoteID) ,
+		CONSTRAINT Note_FK1 FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+CREATE TABLE Student_Contribute_Record
+(
+		Contribute_StudentID       VARCHAR(10)   NOT NULL,
+		NoteID			    	   VARCHAR(10)   NOT NULL,
+        Point			   		   INT,
+		CONSTRAINT Student_Contribute_Record_PK PRIMARY KEY (Contribute_StudentID,NoteID) ,
+		CONSTRAINT Student_Contribute_Record_FK1 FOREIGN KEY (Contribute_StudentID) REFERENCES Student_Contribute(Contribute_StudentID)
+);
+
+CREATE TABLE Student_View_Record
+(
+		View_StudentID       	   VARCHAR(10)   NOT NULL,
+		NoteID			    	   VARCHAR(10)   NOT NULL,
+        Point			   		   INT,
+		CONSTRAINT Student_View_Record_PK PRIMARY KEY (View_StudentID,NoteID) ,
+		CONSTRAINT Student_View_Record_FK1 FOREIGN KEY (View_StudentID) REFERENCES Student_View(View_StudentID)
+);
+
+CREATE TABLE Exercise
+(
+		ExerciseID 	        VARCHAR(10)		NOT NULL,
+		Topic			    VARCHAR(40),
+        CourseID			VARCHAR(10),
+		CONSTRAINT Exercise_PK PRIMARY KEY (ExerciseID),
+		CONSTRAINT Exercise_FK1 FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+CREATE TABLE Professor
+(
+		FacultyID 	        VARCHAR(10) 	NOT NULL,
+		Department		    VARCHAR(40),
+        Name	        	VARCHAR(40),
+		CONSTRAINT Professor_PK PRIMARY KEY (FacultyID)
+);
+
+CREATE TABLE Tutor
+(
+		TutorID 	        VARCHAR(10)		NOT NULL,
+		Number_of_course	INT,
+        Schedule			VARCHAR(40),
+		CONSTRAINT Tutor_PK PRIMARY KEY (TutorID)
+);
+
+CREATE TABLE Faculty_Record
+(
+		FacultyID       VARCHAR(10)   NOT NULL,
+		CourseID		VARCHAR(10)   NOT NULL,
+		CONSTRAINT Faculty_Record_PK PRIMARY KEY (FacultyID,CourseID) ,
+		CONSTRAINT Faculty_Record_FK1 FOREIGN KEY (FacultyID) REFERENCES Professor(FacultyID),
+		CONSTRAINT Faculty_Record_FK2 FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+CREATE TABLE Tutor_Record
+(
+		TutorID	        VARCHAR(10)   NOT NULL,
+		CourseID		VARCHAR(10)   NOT NULL,
+		CONSTRAINT Tutor_Record_PK PRIMARY KEY (TutorID,CourseID) ,
+		CONSTRAINT Tutor_Record_FK1 FOREIGN KEY (TutorID) REFERENCES Tutor(TutorID),
+		CONSTRAINT Tutor_Record_FK2 FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);

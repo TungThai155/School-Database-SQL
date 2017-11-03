@@ -1,0 +1,199 @@
+INSERT INTO Chatroom VALUES ('1', 'Semester Grades', 'Hello');
+INSERT INTO Chatroom VALUES ('2', 'Student Notes',   'Goodbye');
+INSERT INTO Chatroom VALUES ('3', 'Available Tutors','How are you');
+INSERT INTO Chatroom VALUES ('4', 'Professors',      'Who are you');
+INSERT INTO Chatroom VALUES ('5', 'Projects',        'When is the');
+INSERT INTO Chatroom VALUES ('6', 'Fall 2017',       'Who knows if');
+INSERT INTO Chatroom VALUES ('7', 'Summer 2018',     'Are you');
+INSERT INTO Chatroom VALUES ('8', 'Summer 2017',     'Do you know');
+INSERT INTO Chatroom VALUES ('9', 'Spring 2018',     'Where is the');
+INSERT INTO Chatroom VALUES ('10','Co-op',           'What is the');
+
+INSERT INTO Student VALUES ('W001', 'John Smith', '1999-07-01', 'Freshman', 'Computer Science', 'M', '1');
+INSERT INTO Student VALUES ('W002', 'Wade Bellington', '1999-12-02', 'Freshman', 'Civil Engineering', 'M', '2');
+INSERT INTO Student VALUES ('W003', 'Arianna Jones', '1996-05-15', 'Senior', 'Computer Engineering', 'F', '1');
+INSERT INTO Student VALUES ('W004', 'William Longley', '1997-06-22', 'Junior', 'Business Management', 'M', '4');
+INSERT INTO Student VALUES ('W005', 'Luke Ford', '1998-08-23', 'Sophomore', 'Accounting', 'M', '5');
+INSERT INTO Student VALUES ('W006', 'Brandon Feng', '1997-09-27', 'Junior', 'English', 'M', '6');
+INSERT INTO Student VALUES ('W007', 'Linda Sanchez', '1997-12-12', 'Junior', 'Mathematics', 'F', '7');
+INSERT INTO Student VALUES ('W008', 'Christine Wong', '1997-12-02', 'Junior', 'Graphic Design', 'F', '8');
+INSERT INTO Student VALUES ('W009', 'Grace Nguyen', '1996-03-03', 'Senior', 'Biology', 'F', '7');
+INSERT INTO Student VALUES ('W010', 'Mike Paul', '1998-04-19', 'Sophomore', 'Chemistry', 'M', '10');
+
+INSERT INTO Club_Member VALUES ('W001',	  '2017-11-01');
+INSERT INTO Club_Member VALUES ('W002',	  '2017-10-01');
+INSERT INTO Club_Member VALUES ('W005',	  '2017-10-31');
+INSERT INTO Club_Member VALUES ('W006',	  '2017-09-26');
+INSERT INTO Club_Member VALUES ('W008',	  '2017-10-14');
+INSERT INTO Club_Member VALUES ('W009',	  '2017-10-12');
+
+INSERT INTO Club VALUES ('C1',	'20',	'M/W/F 2pm-3pm', 'Physics Club');
+INSERT INTO Club VALUES ('C2',	'15',	'T/R 9am-11am',  'Computer Club');
+INSERT INTO Club VALUES ('C3',	'30',	'M 6pm-7pm',     'Electronics Club');
+INSERT INTO Club VALUES ('C4',	'22',	'F 4pm-5pm',     'Tennis Club');
+INSERT INTO Club VALUES ('C5',	'16',	'M/F 10am-11am', 'Databases Club');
+
+INSERT INTO Course VALUES('HUMN3700',	'American History',	            'Humanities',	3);
+INSERT INTO Course VALUES('HUMN3000',	'Climate Change',	            'Humanities',	3);
+INSERT INTO Course VALUES('MATH1700',	'Calculus I',	                'Math',	        4);
+INSERT INTO Course VALUES('MATH2025',	'Differential Equations',       'Math',      	4);
+INSERT INTO Course VALUES('ELEC3150',	'Object Oriented',	            'Engineering',	4);
+INSERT INTO Course VALUES('COMP1000',	'Computer Science I',	        'Computer',  	4);
+INSERT INTO Course VALUES('BUS3800',	'Economy for Engineer',	        'Business', 	3);
+INSERT INTO Course VALUES('PHYS1700',	'Physics I',	                'Science',   	4);
+
+INSERT INTO Project VALUES ('P1',	'Force vs. Work',	    '2017-11-02',	2,	'C1');
+INSERT INTO Project VALUES ('P2',	'Computer Parts',	    '2017-10-02',	1,	'C2');
+INSERT INTO Project VALUES ('P3',	'Electrical Parts',	    '2017-11-01',	3,	'C3');
+INSERT INTO Project VALUES ('P4',	'Databases',	        '2017-10-15',	1,	'C5');
+INSERT INTO Project VALUES ('P5',	'Circuit Theory',	    '2017-10-13',	2,	'C3');
+
+INSERT INTO Achievement VALUES ('Honors',	    '2016-01-30',	'Academic');
+INSERT INTO Achievement VALUES ('Merit',	    '2015-01-25',	'Academic');
+INSERT INTO Achievement VALUES ('Volunteer',	'2016-04-14',	'Volunteer');
+INSERT INTO Achievement VALUES ('Fine Art',	    '2017-03-04',	    'Art');
+INSERT INTO Achievement VALUES ('Stu_Month',	'2015-06-12',	'Academic');
+INSERT INTO Achievement VALUES ('Em_Month',     '2016-02-18',	'Career');
+
+INSERT INTO Student_Contribute VALUES('W001',	'yes',	2);
+INSERT INTO Student_Contribute VALUES('W002',	'yes',	2);
+INSERT INTO Student_Contribute VALUES('W006',	'yes',	3);
+INSERT INTO Student_Contribute VALUES('W008',	'yes',	5);
+INSERT INTO Student_Contribute VALUES('W009',	'yes',	3);
+INSERT INTO Student_Contribute VALUES('W010',	'yes',	1);
+
+INSERT INTO Student_View VALUES('W001',	'Well done', 	        'yes');
+INSERT INTO Student_View VALUES('W003',	'Amazing', 	            'yes');
+INSERT INTO Student_View VALUES('W004',	'Nice work',	        'yes');
+INSERT INTO Student_View VALUES('W005',	'Interesting', 	        'no');
+INSERT INTO Student_View VALUES('W007',	'Good job',	            'yes');
+INSERT INTO Student_View VALUES('W008',	'Cool',	                'no');
+INSERT INTO Student_View VALUES('W010',	'Fantastic',	        'no');
+
+INSERT INTO Note VALUES('N1',	'American Revolution',	  '2017-10-01',	'History notes',	        'A', 'HUMN3700');
+INSERT INTO Note VALUES('N2',	'Climate Change',	   	  '2017-11-01', 'Climate Change notes',	    'B', 'HUMN3000');
+INSERT INTO Note VALUES('N3',	'Derivative', 	          '2017-10-03',	'Notes with equations',	    'A-','MATH1700');
+INSERT INTO Note VALUES('N4',	'Eigenvalue',             '2017-10-09',	'Notes with solutions',     'A', 'MATH2025');
+INSERT INTO Note VALUES('N5',	'Limit',	              '2017-10-31', 'Notes with formulas',      'A', 'MATH1700');
+INSERT INTO Note VALUES('N6',	'Class',	              '2017-10-27', 'Information Systems notes','C', 'ELEC3150');
+INSERT INTO Note VALUES('N7',	'Introduce to Java', 	  '2017-10-16', 'Programming notes',	    'B+','COMP1000');
+INSERT INTO Note VALUES('N8',	'Civil War',	          '2017-09-11',	'History notes',	        'B-','HUMN3700');
+INSERT INTO Note VALUES('N9',	'Force', 	              '2017-09-23',	'Physics equations',        'C+','PHYS1700');
+INSERT INTO Note VALUES('N10',  'Queue',	              '2017-09-22',	'Programming notes',	    'B+','ELEC3150');
+
+INSERT INTO Professor VALUES('W111',	'Math',	                    'Lily Jackson');
+INSERT INTO Professor VALUES('W112',	'Science',	                'Tony Banner');
+INSERT INTO Professor VALUES('W113',	'Humanities',	            'Steve Chan');
+INSERT INTO Professor VALUES('W114',	'Math',	                    'Albert Nikola');
+INSERT INTO Professor VALUES('W115',	'Science',	                'Tony Yang');
+INSERT INTO Professor VALUES('W116',	'Humanities',	            'Akira Yuko');
+INSERT INTO Professor VALUES('W117',	'Engineering',          	'Anthony Paul');
+INSERT INTO Professor VALUES('W118',	'Computer Science',	        'Harry Lue');
+INSERT INTO Professor VALUES('W119',	'Business', 	            'Peter Stark');
+INSERT INTO Professor VALUES('W120',	'Science',	                'Sigmund Isaac');
+
+INSERT INTO Tutor VALUES('T001',	1,	'M/W 3pm-5pm');
+INSERT INTO Tutor VALUES('T002',	1,	'W/F 3pm-5pm');
+INSERT INTO Tutor VALUES('T003',	2,	'M/F 2pm-5pm');
+INSERT INTO Tutor VALUES('T004',	2,	'T/R 2pm-4pm');
+INSERT INTO Tutor VALUES('T005',	2,	'T/W 5pm-6pm');
+
+INSERT INTO Exercise VALUES('E001',	'US Presidents',	    'HUMN3700');
+INSERT INTO Exercise VALUES('E002',	'List of Countries',	'HUMN3000');
+INSERT INTO Exercise VALUES('E003',	'Integrals',	        'MATH1700');
+INSERT INTO Exercise VALUES('E004',	'Ordinary and Partial',	'MATH2025');
+INSERT INTO Exercise VALUES('E005',	'Eigenvalue',	        'MATH2025');
+INSERT INTO Exercise VALUES('E006',	'Class',	            'ELEC3150');
+INSERT INTO Exercise VALUES('E007',	'Java Programming',	    'COMP1000');
+
+INSERT INTO Club_Member_Record VALUES('W001',	'C1');
+INSERT INTO Club_Member_Record VALUES('W002',	'C1');
+INSERT INTO Club_Member_Record VALUES('W002',	'C2');
+INSERT INTO Club_Member_Record VALUES('W005',	'C2');
+INSERT INTO Club_Member_Record VALUES('W006',	'C2');
+INSERT INTO Club_Member_Record VALUES('W001',	'C3');
+INSERT INTO Club_Member_Record VALUES('W005',	'C3');
+INSERT INTO Club_Member_Record VALUES('W009',	'C3');
+INSERT INTO Club_Member_Record VALUES('W006',	'C4');
+INSERT INTO Club_Member_Record VALUES('W008',	'C4');
+INSERT INTO Club_Member_Record VALUES('W008',	'C5');
+INSERT INTO Club_Member_Record VALUES('W009',	'C5');
+
+INSERT INTO Achievement_Record VALUES('Honors',	'W001');
+INSERT INTO Achievement_Record VALUES('Honors',	'W002');
+INSERT INTO Achievement_Record VALUES('Merit',	'W003');
+INSERT INTO Achievement_Record VALUES('Volunteer','W004');
+INSERT INTO Achievement_Record VALUES('Volunteer','W007');
+INSERT INTO Achievement_Record VALUES('Fine Art',	'W005');
+INSERT INTO Achievement_Record VALUES('Stu_Month','W007');
+INSERT INTO Achievement_Record VALUES('Em_Month',	'W010');
+
+INSERT INTO Student_View_Record VALUES('W001',	'N2',	-1);
+INSERT INTO Student_View_Record VALUES('W003',	'N2',	-1);
+INSERT INTO Student_View_Record VALUES('W003',	'N5',	-2);
+INSERT INTO Student_View_Record VALUES('W004',	'N3',	-2);
+INSERT INTO Student_View_Record VALUES('W005',	'N9',	-1);
+INSERT INTO Student_View_Record VALUES('W007',	'N9',	-1);
+INSERT INTO Student_View_Record VALUES('W007',	'N6',	-2);
+INSERT INTO Student_View_Record VALUES('W008',	'N7',	-2);
+INSERT INTO Student_View_Record VALUES('W010',	'N8',	-2);
+
+INSERT INTO Student_Contribute_Record VALUES('W001',	'N1',	5);
+INSERT INTO Student_Contribute_Record VALUES('W001',	'N3',	5);
+INSERT INTO Student_Contribute_Record VALUES('W002',	'N5',	2);
+INSERT INTO Student_Contribute_Record VALUES('W006',	'N4',	4);
+INSERT INTO Student_Contribute_Record VALUES('W006',	'N7',	2);
+INSERT INTO Student_Contribute_Record VALUES('W008',	'N8',	3);
+INSERT INTO Student_Contribute_Record VALUES('W008',	'N9',	5);
+INSERT INTO Student_Contribute_Record VALUES('W009',	'N6',	5);
+INSERT INTO Student_Contribute_Record VALUES('W009',	'N10',	4);
+INSERT INTO Student_Contribute_Record VALUES('W010',	'N2',	3);
+
+INSERT INTO Tutor_Record VALUES('T001',	'MATH2025');
+INSERT INTO Tutor_Record VALUES('T002',	'PHYS1700');
+INSERT INTO Tutor_Record VALUES('T003',	'ELEC3150');
+INSERT INTO Tutor_Record VALUES('T003',	'PHYS1700');
+INSERT INTO Tutor_Record VALUES('T004',	'COMP1000');
+INSERT INTO Tutor_Record VALUES('T004',	'ELEC3150');
+INSERT INTO Tutor_Record VALUES('T005',	'MATH1700');
+INSERT INTO Tutor_Record VALUES('T005',	'MATH2025');
+
+INSERT INTO Faculty_Record VALUES('W111',	'MATH1700');
+INSERT INTO Faculty_Record VALUES('W111',	'MATH2025');
+INSERT INTO Faculty_Record VALUES('W112',	'PHYS1700');
+INSERT INTO Faculty_Record VALUES('W113',	'HUMN3700');
+INSERT INTO Faculty_Record VALUES('W113',	'HUMN3000');
+INSERT INTO Faculty_Record VALUES('W114',	'MATH2025');
+INSERT INTO Faculty_Record VALUES('W115',	'PHYS1700');
+INSERT INTO Faculty_Record VALUES('W116',	'HUMN3000');
+INSERT INTO Faculty_Record VALUES('W117',	'ELEC3150');
+INSERT INTO Faculty_Record VALUES('W118',	'COMP1000');
+INSERT INTO Faculty_Record VALUES('W119',	'BUS3800');
+INSERT INTO Faculty_Record VALUES('W120',	'PHYS1700');
+
+INSERT INTO Project_Record VALUES('W001',	'P1');
+INSERT INTO Project_Record VALUES('W002',	'P1');
+INSERT INTO Project_Record VALUES('W002',	'P2');
+INSERT INTO Project_Record VALUES('W001',	'P3');
+INSERT INTO Project_Record VALUES('W005',	'P3');
+INSERT INTO Project_Record VALUES('W009',	'P3');
+INSERT INTO Project_Record VALUES('W006',	'P4');
+INSERT INTO Project_Record VALUES('W008',	'P5');
+INSERT INTO Project_Record VALUES('W009',	'P5');
+
+INSERT INTO Registration VALUES('W001', 'HUMN3700');
+INSERT INTO Registration VALUES('W003', 'HUMN3700');
+INSERT INTO Registration VALUES('W002', 'HUMN3000');
+INSERT INTO Registration VALUES('W005', 'HUMN3000');
+INSERT INTO Registration VALUES('W001', 'MATH1700');
+INSERT INTO Registration VALUES('W007', 'MATH1700');
+INSERT INTO Registration VALUES('W003', 'MATH2025');
+INSERT INTO Registration VALUES('W004', 'MATH2025');
+INSERT INTO Registration VALUES('W006', 'PHYS1700');
+INSERT INTO Registration VALUES('W008', 'PHYS1700');
+INSERT INTO Registration VALUES('W007', 'ELEC3150');
+INSERT INTO Registration VALUES('W008', 'ELEC3150');
+INSERT INTO Registration VALUES('W004', 'COMP1000');
+INSERT INTO Registration VALUES('W009', 'COMP1000');
+INSERT INTO Registration VALUES('W009', 'BUS3800');
+INSERT INTO Registration VALUES('W010', 'BUS3800');
